@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header';
 import Footer from './components/footer';
+import Form from './components/form';
+import Counter from './components/counter';
 
 class App extends Component {
   render() {
@@ -28,6 +30,8 @@ class App extends Component {
           
           <div className="container-fluid">
             <Header/>
+            <Form/>
+            <Counter count={9} />
 
           </div> {/*end of container-fluid...bootstrap container for laying out components within main content of page*/}
 
