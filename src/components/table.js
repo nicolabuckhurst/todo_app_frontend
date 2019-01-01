@@ -1,4 +1,5 @@
 import React from 'react'
+import TableRow from './tablerow'
 
 //pass a prop which is an array of task object to table and it will create a table with the appropriate row components
 //a task object will look like this {id:"number", text:"string"}
@@ -8,15 +9,7 @@ class Table extends React.Component{
         let tableRowsToRender =[];
         for(let i=0; i<this.props.tasks.length;i++){
             tableRowsToRender.push(
-                <tr key={this.props.tasks[i].id}> {/*react needs this key to identify when an aray element changes*/}
-                    <td className="align-middle">{this.props.tasks[i].text}</td>
-                    <td style={styles.mybuttoncolumn} className="text-right">
-                        <button type="button" className="btn btn-secondary btn-sm mt-1 mb-1">Done</button>
-                    </td>
-                    <td style={styles.mybuttoncolumn} className="text-right">
-                        <button type="button" className="btn btn-secondary btn-sm mt-1 mb-1">Delete</button>
-                    </td>
-                </tr>
+                <TableRow key={this.props.tasks[i].id} text={this.props.tasks[i].text} /> //react needs this key to identify when an aray element changes
             )
         }
         return tableRowsToRender
@@ -45,12 +38,6 @@ class Table extends React.Component{
                 </div>
             </div>
         )
-    }
-}
-
-const styles={
-    mybuttoncolumn:{
-        width:"8%"
     }
 }
 
