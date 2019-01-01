@@ -42,7 +42,7 @@ class App extends Component {
           <div className="container-fluid">
             <Header/>
             <Form/>
-            <Counter count={9} />
+            <Counter count={this.state.tasks.length} />
             <Table tasks={this.state.tasks} />
           </div> {/*end of container-fluid...bootstrap container for laying out components within main content of page*/}
 
