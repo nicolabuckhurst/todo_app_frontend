@@ -7,13 +7,17 @@ import Counter from './components/counter';
 import Table from './components/table';
 
 class App extends Component {
-  render() {
+  constructor(props){
     let tasks = [
       {id:0, text:"This is my first task"},
       {id:1, text:"This is my second task"},
       {id:2, text:"This is my third task"}
     ]
-
+    super(props);
+    this.state = {tasks:tasks}
+  }
+  
+  render() {
     return (
       <div style = {styles["transparent-box"]} className="d-flex flex-column">
 
@@ -39,7 +43,7 @@ class App extends Component {
             <Header/>
             <Form/>
             <Counter count={9} />
-            <Table tasks={tasks} />
+            <Table tasks={this.state.tasks} />
           </div> {/*end of container-fluid...bootstrap container for laying out components within main content of page*/}
 
         </div> {/*end of content div that resizes to whole of screen minus footer*/}
