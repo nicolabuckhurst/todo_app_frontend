@@ -5,3 +5,8 @@ body{
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+.my-navbar{
+  background-color: midnightblue;
+}
+
