@@ -17,7 +17,8 @@ class Form extends React.Component{
 
     handleSubmit(event){
         event.preventDefault()
-        alert("you submitted the following task:" +  this.state.value)
+        this.props.addTaskHandler(this.state.value)
+        this.setState({value:""})
     }
 
     render(){

@@ -8,13 +8,53 @@ import Table from './components/table';
 
 class App extends Component {
   constructor(props){
-    let tasks = [
-      {id:0, text:"This is my first task"},
-      {id:1, text:"This is my second task"},
-      {id:2, text:"This is my third task"}
-    ]
     super(props);
-    this.state = {tasks:tasks}
+
+    //create a counter for unique id's when new task is created..this is not a state as it doesn't need to be monitored for
+    //change by react...we will not reuse id's when a task is deleted
+    this.counter = 0;
+
+    super(props);
+
+    //create an empty array to hold tasks as state
+    this.state = {tasks:[]}
+
+    //bind add task function to this object
+    this.addTask = this.addTask.bind(this)
+    this.taskCompleteToggle = this.taskCompleteToggle.bind(this)
+
+  }
+
+  //function for adding a new task and updating state
+  addTask(taskText){
+    //create a new uncompleted task based on taskText
+    const task={
+      id:this.counter,
+      text:taskText,
+      completed: false
+    }
+
+    //get current list of tasks stored in state and push new task onto end
+    let taskList = this.state.tasks;
+    taskList.push(task);
+
+    //use setState to update the taskList stored in state
+    this.setState({tasks:taskList})
+    this.counter ++;
+  }
+
+  //function for changing task status to completed
+  taskCompleteToggle(id){
+    //find task by id and set s
+    let taskList = this.state.tasks;
+    for(let i=0; i<taskList.length; i++){
+      if(taskList[i].id == id){
+        taskList[i].completed = !taskList[i].completed //toggle the boolean value
+      }
+    }
+
+    //use setState to update taskList stored in State
+    this.setState({tasks:taskList})
   }
   
   render() {
@@ -41,9 +81,9 @@ class App extends Component {
           
           <div className="container-fluid">
             <Header/>
-            <Form/>
-            <Counter count={this.state.tasks.length} />
-            <Table tasks={this.state.tasks} />
+            <Form addTaskHandler={this.addTask}/>
+            <Counter count={this.state.tasks.filter(function(element){return(element.completed==false)}).length} />
+            <Table tasks={this.state.tasks} toggleCompleteStatus={this.taskCompleteToggle}/>
           </div> {/*end of container-fluid...bootstrap container for laying out components within main content of page*/}
 
         </div> {/*end of content div that resizes to whole of screen minus footer*/}

@@ -1,0 +1,18 @@
+.myRow td,
+.myRow td button {
+    -webkit-transition: all 0.5s ease;  
+  -moz-transition: all 0.5s ease;  
+  -o-transition: all 0.5s ease;  
+  -ms-transition: all 0.5s ease;  
+  transition: all 0.5s ease;
+}
+
+.myRowAfterButtonClick,
+.myRowAfterButtonClick td,
+.myRowAfterButtonClick td button {
+    font-size: 0px;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    visibility: hidden;
+}
