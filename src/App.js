@@ -21,7 +21,8 @@ class App extends Component {
 
     //bind add task function to this object
     this.addTask = this.addTask.bind(this)
-    this.taskCompleteToggle = this.taskCompleteToggle.bind(this)
+    this.toggleCompleteStatus = this.toggleCompleteStatus.bind(this)
+    this.deleteTask = this.deleteTask.bind(this)
 
   }
 
@@ -33,26 +34,36 @@ class App extends Component {
       text:taskText,
       completed: false
     }
-
     //get current list of tasks stored in state and push new task onto end
     let taskList = this.state.tasks;
     taskList.push(task);
-
     //use setState to update the taskList stored in state
     this.setState({tasks:taskList})
     this.counter ++;
   }
 
   //function for changing task status to completed
-  taskCompleteToggle(id){
-    //find task by id and set s
+  toggleCompleteStatus(id){
+    //find task by id and toggle the completed property
     let taskList = this.state.tasks;
     for(let i=0; i<taskList.length; i++){
       if(taskList[i].id == id){
         taskList[i].completed = !taskList[i].completed //toggle the boolean value
       }
     }
+    //use setState to update taskList stored in State
+    this.setState({tasks:taskList})
+  }
 
+  //function to delete task
+  deleteTask(id){
+    //find task by id and delete from array
+    let taskList = this.state.tasks;
+    for(let i=0; i<taskList.length; i++){
+      if(taskList[i].id == id){
+        taskList.splice(i,1);
+      }
+    }
     //use setState to update taskList stored in State
     this.setState({tasks:taskList})
   }
@@ -83,7 +94,7 @@ class App extends Component {
             <Header/>
             <Form addTaskHandler={this.addTask}/>
             <Counter count={this.state.tasks.filter(function(element){return(element.completed==false)}).length} />
-            <Table tasks={this.state.tasks} toggleCompleteStatus={this.taskCompleteToggle}/>
+            <Table tasks={this.state.tasks} toggleCompleteStatus={this.toggleCompleteStatus} deleteTask={this.deleteTask}/>
           </div> {/*end of container-fluid...bootstrap container for laying out components within main content of page*/}
 
         </div> {/*end of content div that resizes to whole of screen minus footer*/}
