@@ -1,14 +1,14 @@
 {
-  "main.css": "/todo_app_frontend/static/css/main.cb8b175a.chunk.css",
-  "main.js": "/todo_app_frontend/static/js/main.c3a94bf3.chunk.js",
-  "main.js.map": "/todo_app_frontend/static/js/main.c3a94bf3.chunk.js.map",
+  "main.css": "/todo_app_frontend/static/css/main.60cd98fe.chunk.css",
+  "main.js": "/todo_app_frontend/static/js/main.35e29940.chunk.js",
+  "main.js.map": "/todo_app_frontend/static/js/main.35e29940.chunk.js.map",
   "static/js/1.acaa8cba.chunk.js": "/todo_app_frontend/static/js/1.acaa8cba.chunk.js",
   "static/js/1.acaa8cba.chunk.js.map": "/todo_app_frontend/static/js/1.acaa8cba.chunk.js.map",
   "runtime~main.js": "/todo_app_frontend/static/js/runtime~main.c0acfcae.js",
   "runtime~main.js.map": "/todo_app_frontend/static/js/runtime~main.c0acfcae.js.map",
   "static/media/index.css": "/todo_app_frontend/static/media/green-chameleon-21532-unsplash.9bbbb4ae.jpg",
-  "static/css/main.cb8b175a.chunk.css.map": "/todo_app_frontend/static/css/main.cb8b175a.chunk.css.map",
+  "static/css/main.60cd98fe.chunk.css.map": "/todo_app_frontend/static/css/main.60cd98fe.chunk.css.map",
   "index.html": "/todo_app_frontend/index.html",
-  "precache-manifest.a96320f54e4f84cea648a40f3234f49d.js": "/todo_app_frontend/precache-manifest.a96320f54e4f84cea648a40f3234f49d.js",
+  "precache-manifest.bae7e52009e0585ae774c0ee98dd8e37.js": "/todo_app_frontend/precache-manifest.bae7e52009e0585ae774c0ee98dd8e37.js",
   "service-worker.js": "/todo_app_frontend/service-worker.js"
 }

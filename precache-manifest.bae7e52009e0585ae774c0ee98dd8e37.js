@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "c3a94bf3e3dc0d020227",
-    "url": "/todo_app_frontend/static/css/main.cb8b175a.chunk.css"
+    "revision": "35e299408902ba0b7bce",
+    "url": "/todo_app_frontend/static/css/main.60cd98fe.chunk.css"
   },
   {
-    "revision": "c3a94bf3e3dc0d020227",
-    "url": "/todo_app_frontend/static/js/main.c3a94bf3.chunk.js"
+    "revision": "35e299408902ba0b7bce",
+    "url": "/todo_app_frontend/static/js/main.35e29940.chunk.js"
   },
   {
     "revision": "acaa8cba34849edff304",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/todo_app_frontend/static/media/green-chameleon-21532-unsplash.9bbbb4ae.jpg"
   },
   {
-    "revision": "d126ce4380dd8d3a1d6ded7018feef17",
+    "revision": "8d78d2e2c6fc36bd3ebb0e7095c1c30c",
     "url": "/todo_app_frontend/index.html"
   }
 ];
