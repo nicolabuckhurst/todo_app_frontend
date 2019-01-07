@@ -7,17 +7,27 @@ class TableRow extends React.Component{
     constructor(props){
         super(props)
 
+        //set className as a state so you can change the classname of <tr> and trigger an animation...see app.css for class definitions
         this.state={rowClass:"myRow"}
 
-        this.handleDoneClick = this.handleDoneClick.bind(this)
+        this.handleCompletionToggleClick = this.handleCompletionToggleClick.bind(this)
     }
 
-    handleDoneClick(event){
+    handleCompletionToggleClick(event){
         event.preventDefault()
+        //change the className using setState so render is called with new className and css transition is triggered
         this.setState({rowClass:"myRow myRowAfterButtonClick"})
+        //the animations to shrink row takes 0.5s to complete so use setTimeout to delay next steps from being 
+        //executed until animation is complete
+        //once animation is complete change task status to complete ..this changes state in app conponent and page is
+        //rerendered ... remember to set classNames back at end otherwise this row won't appear as completed at bottom 
+        //of table as it will be shrunk and invisible 
+        //had some difficulty calling this inside setTimeout due to this having context of winow not this object...solved by
+        //using arrow functions which don't have their own this but inherit from the enclosing lexical context.
         setTimeout(()=>{this.props.toggleCompleteStatus(this.props.task.id); 
                         this.setState({rowClass:"myRow"})}, 500)
     }
+
 
     render(){
         let textStyle = {}
@@ -30,9 +40,9 @@ class TableRow extends React.Component{
                 <td className="align-middle" style={textStyle}>{this.props.task.text}</td>
                 <td style={styles.mybuttoncolumn} className="text-right">
                     {this.props.task.completed ? (
-                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleDoneClick}>Reinstate Task</button>
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Reinstate Task</button>
                     ) : (
-                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleDoneClick}>Done</button>
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Done</button>
                     )
                     }
                 </td>

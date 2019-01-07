@@ -1,10 +1,10 @@
 .myRow td,
 .myRow td button {
     -webkit-transition: all 0.5s ease;  
-  -moz-transition: all 0.5s ease;  
-  -o-transition: all 0.5s ease;  
-  -ms-transition: all 0.5s ease;  
-  transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;  
+    -o-transition: all 0.5s ease;  
+    -ms-transition: all 0.5s ease;  
+    transition: all 0.5s ease;
 }
 
 .myRowAfterButtonClick,
