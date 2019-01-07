@@ -25,8 +25,10 @@ class TableRow extends React.Component{
         //of table as it will be shrunk and invisible 
         //had some difficulty calling this inside setTimeout due to this having context of winow not this object...solved by
         //using arrow functions which don't have their own this but inherit from the enclosing lexical context.
+        //added an extra 10ms delay between toggling status of completion and making row reappear in animation....without this
+        //safari does not render the css transition properly...I DON'T REALLY KNOW WHY!
         setTimeout(()=>{this.props.toggleCompleteStatus(this.props.task.id); 
-                        this.setState({rowClass:"myRow"})}, 500)
+                        setTimeout(()=>{this.setState({rowClass:"myRow"})}, 10);}, 500) 
     }
 
 
