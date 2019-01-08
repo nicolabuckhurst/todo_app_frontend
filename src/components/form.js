@@ -24,12 +24,12 @@ class Form extends React.Component{
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
-                <div class="form-row justify-content-center align-items-center mb-2 pb-4">
-                    <div class="col-12 col-lg-8">
-                        <div class="input-group mb-3">
+                <div className="form-row justify-content-center align-items-center mb-2 pb-4">
+                    <div className="col-12 col-lg-8">
+                        <div className="input-group mb-3">
                             <input type="text" class="form-control" placeholder="enter new task here" value={this.state.value} onChange={this.handleChange} />
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="submit">submit</button>
+                            <div className="input-group-append">
+                                <button className="btn btn-secondary" type="submit">submit</button>
                             </div>
                         </div>
                     </div>

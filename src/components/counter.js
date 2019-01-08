@@ -6,7 +6,7 @@ class Counter extends React.Component{
        return(
             <div className="row mb-4 justify-content-center">
                 <div className="col-10 text-center">
-                    <button type="button" className="btn btn-lg" style={styles["counter-button"]}>
+                    <button type="button" className="btn btn-lg" style={styles.counterButton}>
                         Tasks Remaining: <span className="badge badge-light ml-2">{this.props.count}</span>
                         <span className="sr-only">tasks to do</span>
                     </button>
@@ -17,9 +17,9 @@ class Counter extends React.Component{
 }
 
 const styles={
-    "counter-button": {
-        "background-color": "midnightblue",
-        "color": "white"
+    counterButton: {
+        backgroundColor: "midnightblue",
+        color: "white"
     }
 }
 
