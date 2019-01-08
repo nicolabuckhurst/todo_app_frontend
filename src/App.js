@@ -14,8 +14,6 @@ class App extends Component {
     //change by react...we will not reuse id's when a task is deleted
     this.counter = 0;
 
-    super(props);
-
     //create an empty array to hold tasks as state
     this.state = {tasks:[]}
 
