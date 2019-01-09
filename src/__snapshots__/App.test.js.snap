@@ -1,0 +1,1535 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the page renders correctly renders correctly onloading 1`] = `
+<div
+  className="d-flex flex-column"
+  style={
+    Object {
+      "height": "100vh",
+    }
+  }
+>
+  <div
+    className="pt-5 flex-grow-1"
+    style={
+      Object {
+        "backgroundColor": "rgba(255,255,255,0.73)",
+        "overflowY": "auto",
+      }
+    }
+  >
+     
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row mb-3 mt-3"
+      >
+        <div
+          className="col-12"
+        >
+          <p
+            className="display-4 text-center"
+          >
+            To Do List
+          </p>
+        </div>
+      </div>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-row justify-content-center align-items-center mb-2 pb-4"
+        >
+          <div
+            className="col-12 col-lg-8"
+          >
+            <div
+              className="input-group mb-3"
+            >
+              <input
+                className="form-control"
+                onChange={[Function]}
+                placeholder="enter new task here"
+                type="text"
+                value=""
+              />
+              <div
+                className="input-group-append"
+              >
+                <button
+                  className="btn btn-secondary"
+                  type="submit"
+                >
+                  submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        className="row mb-4 justify-content-center"
+      >
+        <div
+          className="col-10 text-center"
+        >
+          <button
+            className="btn btn-lg"
+            style={
+              Object {
+                "backgroundColor": "midnightblue",
+                "color": "white",
+              }
+            }
+            type="button"
+          >
+            Tasks Remaining: 
+            <span
+              className="badge badge-light ml-2"
+            >
+              0
+            </span>
+            <span
+              className="sr-only"
+            >
+              tasks to do
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <p
+                className="h3"
+              >
+                Task List
+              </p>
+            </div>
+          </div>
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <div
+                className="table-responsive"
+              >
+                <table
+                  className="table table-striped"
+                >
+                  <tbody />
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+   
+  <footer
+    style={
+      Object {
+        "backgroundColor": "gray",
+        "color": "white",
+      }
+    }
+  >
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 text-right mt-2 mb-2"
+        >
+          <a
+            className="text-light"
+            href="#"
+          >
+            Footer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`the page renders correctly renders correctly when a new task is added 1`] = `
+<div
+  className="d-flex flex-column"
+  style={
+    Object {
+      "height": "100vh",
+    }
+  }
+>
+  <div
+    className="pt-5 flex-grow-1"
+    style={
+      Object {
+        "backgroundColor": "rgba(255,255,255,0.73)",
+        "overflowY": "auto",
+      }
+    }
+  >
+     
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row mb-3 mt-3"
+      >
+        <div
+          className="col-12"
+        >
+          <p
+            className="display-4 text-center"
+          >
+            To Do List
+          </p>
+        </div>
+      </div>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-row justify-content-center align-items-center mb-2 pb-4"
+        >
+          <div
+            className="col-12 col-lg-8"
+          >
+            <div
+              className="input-group mb-3"
+            >
+              <input
+                className="form-control"
+                onChange={[Function]}
+                placeholder="enter new task here"
+                type="text"
+                value=""
+              />
+              <div
+                className="input-group-append"
+              >
+                <button
+                  className="btn btn-secondary"
+                  type="submit"
+                >
+                  submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        className="row mb-4 justify-content-center"
+      >
+        <div
+          className="col-10 text-center"
+        >
+          <button
+            className="btn btn-lg"
+            style={
+              Object {
+                "backgroundColor": "midnightblue",
+                "color": "white",
+              }
+            }
+            type="button"
+          >
+            Tasks Remaining: 
+            <span
+              className="badge badge-light ml-2"
+            >
+              1
+            </span>
+            <span
+              className="sr-only"
+            >
+              tasks to do
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <p
+                className="h3"
+              >
+                Task List
+              </p>
+            </div>
+          </div>
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <div
+                className="table-responsive"
+              >
+                <table
+                  className="table table-striped"
+                >
+                  <tbody>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed dog
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+   
+  <footer
+    style={
+      Object {
+        "backgroundColor": "gray",
+        "color": "white",
+      }
+    }
+  >
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 text-right mt-2 mb-2"
+        >
+          <a
+            className="text-light"
+            href="#"
+          >
+            Footer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`the page renders correctly renders correctly when multiple tasks have been added 1`] = `
+<div
+  className="d-flex flex-column"
+  style={
+    Object {
+      "height": "100vh",
+    }
+  }
+>
+  <div
+    className="pt-5 flex-grow-1"
+    style={
+      Object {
+        "backgroundColor": "rgba(255,255,255,0.73)",
+        "overflowY": "auto",
+      }
+    }
+  >
+     
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row mb-3 mt-3"
+      >
+        <div
+          className="col-12"
+        >
+          <p
+            className="display-4 text-center"
+          >
+            To Do List
+          </p>
+        </div>
+      </div>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-row justify-content-center align-items-center mb-2 pb-4"
+        >
+          <div
+            className="col-12 col-lg-8"
+          >
+            <div
+              className="input-group mb-3"
+            >
+              <input
+                className="form-control"
+                onChange={[Function]}
+                placeholder="enter new task here"
+                type="text"
+                value=""
+              />
+              <div
+                className="input-group-append"
+              >
+                <button
+                  className="btn btn-secondary"
+                  type="submit"
+                >
+                  submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        className="row mb-4 justify-content-center"
+      >
+        <div
+          className="col-10 text-center"
+        >
+          <button
+            className="btn btn-lg"
+            style={
+              Object {
+                "backgroundColor": "midnightblue",
+                "color": "white",
+              }
+            }
+            type="button"
+          >
+            Tasks Remaining: 
+            <span
+              className="badge badge-light ml-2"
+            >
+              3
+            </span>
+            <span
+              className="sr-only"
+            >
+              tasks to do
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <p
+                className="h3"
+              >
+                Task List
+              </p>
+            </div>
+          </div>
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <div
+                className="table-responsive"
+              >
+                <table
+                  className="table table-striped"
+                >
+                  <tbody>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed bird
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed cat
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed dog
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+   
+  <footer
+    style={
+      Object {
+        "backgroundColor": "gray",
+        "color": "white",
+      }
+    }
+  >
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 text-right mt-2 mb-2"
+        >
+          <a
+            className="text-light"
+            href="#"
+          >
+            Footer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`the page renders correctly renders correctly when task is completed 1`] = `
+<div
+  className="d-flex flex-column"
+  style={
+    Object {
+      "height": "100vh",
+    }
+  }
+>
+  <div
+    className="pt-5 flex-grow-1"
+    style={
+      Object {
+        "backgroundColor": "rgba(255,255,255,0.73)",
+        "overflowY": "auto",
+      }
+    }
+  >
+     
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row mb-3 mt-3"
+      >
+        <div
+          className="col-12"
+        >
+          <p
+            className="display-4 text-center"
+          >
+            To Do List
+          </p>
+        </div>
+      </div>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-row justify-content-center align-items-center mb-2 pb-4"
+        >
+          <div
+            className="col-12 col-lg-8"
+          >
+            <div
+              className="input-group mb-3"
+            >
+              <input
+                className="form-control"
+                onChange={[Function]}
+                placeholder="enter new task here"
+                type="text"
+                value=""
+              />
+              <div
+                className="input-group-append"
+              >
+                <button
+                  className="btn btn-secondary"
+                  type="submit"
+                >
+                  submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        className="row mb-4 justify-content-center"
+      >
+        <div
+          className="col-10 text-center"
+        >
+          <button
+            className="btn btn-lg"
+            style={
+              Object {
+                "backgroundColor": "midnightblue",
+                "color": "white",
+              }
+            }
+            type="button"
+          >
+            Tasks Remaining: 
+            <span
+              className="badge badge-light ml-2"
+            >
+              2
+            </span>
+            <span
+              className="sr-only"
+            >
+              tasks to do
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <p
+                className="h3"
+              >
+                Task List
+              </p>
+            </div>
+          </div>
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <div
+                className="table-responsive"
+              >
+                <table
+                  className="table table-striped"
+                >
+                  <tbody>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed bird
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed cat
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={
+                          Object {
+                            "color": "darkgray",
+                            "textDecoration": "line-through",
+                          }
+                        }
+                      >
+                        feed dog
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Reinstate Task
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+   
+  <footer
+    style={
+      Object {
+        "backgroundColor": "gray",
+        "color": "white",
+      }
+    }
+  >
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 text-right mt-2 mb-2"
+        >
+          <a
+            className="text-light"
+            href="#"
+          >
+            Footer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`the page renders correctly renders correctly when task is deleted 1`] = `
+<div
+  className="d-flex flex-column"
+  style={
+    Object {
+      "height": "100vh",
+    }
+  }
+>
+  <div
+    className="pt-5 flex-grow-1"
+    style={
+      Object {
+        "backgroundColor": "rgba(255,255,255,0.73)",
+        "overflowY": "auto",
+      }
+    }
+  >
+     
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row mb-3 mt-3"
+      >
+        <div
+          className="col-12"
+        >
+          <p
+            className="display-4 text-center"
+          >
+            To Do List
+          </p>
+        </div>
+      </div>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-row justify-content-center align-items-center mb-2 pb-4"
+        >
+          <div
+            className="col-12 col-lg-8"
+          >
+            <div
+              className="input-group mb-3"
+            >
+              <input
+                className="form-control"
+                onChange={[Function]}
+                placeholder="enter new task here"
+                type="text"
+                value=""
+              />
+              <div
+                className="input-group-append"
+              >
+                <button
+                  className="btn btn-secondary"
+                  type="submit"
+                >
+                  submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        className="row mb-4 justify-content-center"
+      >
+        <div
+          className="col-10 text-center"
+        >
+          <button
+            className="btn btn-lg"
+            style={
+              Object {
+                "backgroundColor": "midnightblue",
+                "color": "white",
+              }
+            }
+            type="button"
+          >
+            Tasks Remaining: 
+            <span
+              className="badge badge-light ml-2"
+            >
+              2
+            </span>
+            <span
+              className="sr-only"
+            >
+              tasks to do
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <p
+                className="h3"
+              >
+                Task List
+              </p>
+            </div>
+          </div>
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <div
+                className="table-responsive"
+              >
+                <table
+                  className="table table-striped"
+                >
+                  <tbody>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed bird
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed cat
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+   
+  <footer
+    style={
+      Object {
+        "backgroundColor": "gray",
+        "color": "white",
+      }
+    }
+  >
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 text-right mt-2 mb-2"
+        >
+          <a
+            className="text-light"
+            href="#"
+          >
+            Footer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`the page renders correctly renders correctly when task is reinstated 1`] = `
+<div
+  className="d-flex flex-column"
+  style={
+    Object {
+      "height": "100vh",
+    }
+  }
+>
+  <div
+    className="pt-5 flex-grow-1"
+    style={
+      Object {
+        "backgroundColor": "rgba(255,255,255,0.73)",
+        "overflowY": "auto",
+      }
+    }
+  >
+     
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row mb-3 mt-3"
+      >
+        <div
+          className="col-12"
+        >
+          <p
+            className="display-4 text-center"
+          >
+            To Do List
+          </p>
+        </div>
+      </div>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-row justify-content-center align-items-center mb-2 pb-4"
+        >
+          <div
+            className="col-12 col-lg-8"
+          >
+            <div
+              className="input-group mb-3"
+            >
+              <input
+                className="form-control"
+                onChange={[Function]}
+                placeholder="enter new task here"
+                type="text"
+                value=""
+              />
+              <div
+                className="input-group-append"
+              >
+                <button
+                  className="btn btn-secondary"
+                  type="submit"
+                >
+                  submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        className="row mb-4 justify-content-center"
+      >
+        <div
+          className="col-10 text-center"
+        >
+          <button
+            className="btn btn-lg"
+            style={
+              Object {
+                "backgroundColor": "midnightblue",
+                "color": "white",
+              }
+            }
+            type="button"
+          >
+            Tasks Remaining: 
+            <span
+              className="badge badge-light ml-2"
+            >
+              3
+            </span>
+            <span
+              className="sr-only"
+            >
+              tasks to do
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <p
+                className="h3"
+              >
+                Task List
+              </p>
+            </div>
+          </div>
+          <div
+            className="row justify-content-center"
+          >
+            <div
+              className="col-12 col-lg-8"
+            >
+              <div
+                className="table-responsive"
+              >
+                <table
+                  className="table table-striped"
+                >
+                  <tbody>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed bird
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed cat
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      className="myRow"
+                    >
+                      <td
+                        className="align-middle"
+                        style={Object {}}
+                      >
+                        feed dog
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Done
+                        </button>
+                      </td>
+                      <td
+                        className="text-right"
+                        style={
+                          Object {
+                            "width": "8%",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+   
+  <footer
+    style={
+      Object {
+        "backgroundColor": "gray",
+        "color": "white",
+      }
+    }
+  >
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 text-right mt-2 mb-2"
+        >
+          <a
+            className="text-light"
+            href="#"
+          >
+            Footer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
