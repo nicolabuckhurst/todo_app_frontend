@@ -2,7 +2,7 @@
   "name": "todo_app_frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://nicolabuckhurst.github.io/todo_app_frontend/",
+  "homepage": "https://nicolabuckhurst.github.io/todo_app_frontend/",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
@@ -28,6 +28,7 @@
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
+    "fsevents": "^1.2.4",
     "gh-pages": "^2.0.1",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
