@@ -4,7 +4,7 @@ class Footer extends React.Component{
     render(){
         return(
          //footer that should stick to bottom of screen no matter what the size of the content above
-            <footer style={styles["my-footer"]}>
+            <footer style={styles.myFooter}>
                 {/*container fluid makes it full width of page*/}
                 <div className="container-fluid">
                     <div className="row">
@@ -19,9 +19,9 @@ class Footer extends React.Component{
 }
 
 const styles = {
-    "my-footer":{
-        "background-color": "gray",
-        "color":"white"
+    myFooter:{
+        backgroundColor: "gray",
+        color:"white"
     }
   }
 

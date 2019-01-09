@@ -68,7 +68,7 @@ class App extends Component {
   
   render() {
     return (
-      <div style = {styles["transparent-box"]} className="d-flex flex-column">
+      <div style = {styles.transparentBox} className="d-flex flex-column">
 
 
         {/*wrap all the content except the footer in a div called "content"
@@ -86,7 +86,7 @@ class App extends Component {
         space in transparentBox (which is already set to height 100vh in css file)
         just leaving space for the footer*/}
             
-        <div style={styles["content"]} className="pt-5 flex-grow-1"> {/*need padding as set navbar as fixed-top, makes it sit over the top of other content*/}
+        <div style={styles.content} className="pt-5 flex-grow-1"> {/*need padding as set navbar as fixed-top, makes it sit over the top of other content*/}
           
           <div className="container-fluid">
             <Header/>
@@ -104,12 +104,12 @@ class App extends Component {
 }
 
 const styles = {
-  "transparent-box":{
-    "height":"100vh"
+  transparentBox:{
+    height:"100vh"
   },
-  "content":{
-    "background-color": "rgba(255,255,255,0.73)",
-    "overflow-y": "auto"
+  content:{
+    backgroundColor: "rgba(255,255,255,0.73)",
+    overflowY: "auto"
   }
 }
 
