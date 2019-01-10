@@ -21,6 +21,7 @@ class App extends Component {
     this.addTask = this.addTask.bind(this)
     this.toggleCompleteStatus = this.toggleCompleteStatus.bind(this)
     this.deleteTask = this.deleteTask.bind(this)
+    this.toggleShowStatus = this.toggleShowStatus.bind(this)
 
   }
 
@@ -30,7 +31,8 @@ class App extends Component {
     const task={
       id:this.counter,
       text:taskText,
-      completed: false
+      completed: false,
+      show:true
     }
     //get current list of tasks stored in state and push new task onto end
     let taskList = this.state.tasks;
@@ -65,6 +67,18 @@ class App extends Component {
     //use setState to update taskList stored in State
     this.setState({tasks:taskList})
   }
+
+  toggleShowStatus(id){
+    //find task by id and toggle the show property
+    let taskList = this.state.tasks;
+    for(let i=0; i<taskList.length; i++){
+      if(taskList[i].id == id){
+        taskList[i].show = !taskList[i].show //toggle the boolean value
+      }
+    }
+    //use setState to update taskList stored in State
+    this.setState({tasks:taskList})
+  }
   
   render() {
     return (
@@ -92,7 +106,7 @@ class App extends Component {
             <Header/>
             <Form addTaskHandler={this.addTask}/>
             <Counter count={this.state.tasks.filter(function(element){return(element.completed==false)}).length} />
-            <Table tasks={this.state.tasks} toggleCompleteStatus={this.toggleCompleteStatus} deleteTask={this.deleteTask}/>
+            <Table tasks={this.state.tasks} toggleCompleteStatus={this.toggleCompleteStatus} toggleShowStatus={this.toggleShowStatus} deleteTask={this.deleteTask}/>
           </div> {/*end of container-fluid...bootstrap container for laying out components within main content of page*/}
 
         </div> {/*end of content div that resizes to whole of screen minus footer*/}

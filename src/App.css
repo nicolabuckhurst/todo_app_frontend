@@ -16,3 +16,23 @@
     border: 0px;
     padding: 0px;
 }
+
+  .myfade-entering{
+    animation-name: myfade;
+    animation-duration: 750ms;
+    animation-timing-function: ease-in-out;
+  }
+
+  .myfade-entered{
+    opacity:100;
+  }
+
+  @keyframes myfade {
+    0%   {opacity:0;}
+    100% {opacity:100;}
+}
+
+@keyframes myfadeout {
+  0%   {opacity:100;}
+  100% {opacity:0;}
+}

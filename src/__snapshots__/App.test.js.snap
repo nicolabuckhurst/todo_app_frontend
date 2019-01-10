@@ -301,7 +301,7 @@ exports[`the page renders correctly renders correctly when a new task is added 1
                 >
                   <tbody>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -514,7 +514,7 @@ exports[`the page renders correctly renders correctly when multiple tasks have b
                 >
                   <tbody>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -556,7 +556,7 @@ exports[`the page renders correctly renders correctly when multiple tasks have b
                       </td>
                     </tr>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -598,7 +598,7 @@ exports[`the page renders correctly renders correctly when multiple tasks have b
                       </td>
                     </tr>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -811,7 +811,7 @@ exports[`the page renders correctly renders correctly when task is completed 1`]
                 >
                   <tbody>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -853,7 +853,7 @@ exports[`the page renders correctly renders correctly when task is completed 1`]
                       </td>
                     </tr>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -895,7 +895,7 @@ exports[`the page renders correctly renders correctly when task is completed 1`]
                       </td>
                     </tr>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -1113,7 +1113,7 @@ exports[`the page renders correctly renders correctly when task is deleted 1`] =
                 >
                   <tbody>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -1155,7 +1155,7 @@ exports[`the page renders correctly renders correctly when task is deleted 1`] =
                       </td>
                     </tr>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -1368,7 +1368,7 @@ exports[`the page renders correctly renders correctly when task is reinstated 1`
                 >
                   <tbody>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -1410,7 +1410,7 @@ exports[`the page renders correctly renders correctly when task is reinstated 1`
                       </td>
                     </tr>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"
@@ -1452,7 +1452,7 @@ exports[`the page renders correctly renders correctly when task is reinstated 1`
                       </td>
                     </tr>
                     <tr
-                      className="myRow"
+                      className="myfade myfade-entering"
                     >
                       <td
                         className="align-middle"

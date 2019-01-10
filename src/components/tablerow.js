@@ -1,4 +1,5 @@
 import React from 'react'
+import {Transition, TransitionGroup, CSSTransition} from 'react-transition-group'
 
 //pass this component a prop called key as a list of these will be created and react needs a key prop to 
 //tell when components change
@@ -6,6 +7,8 @@ import React from 'react'
 class TableRow extends React.Component{
     constructor(props){
         super(props)
+
+        this.deleteTask=true;
 
         //set className as a state so you can change the classname of <tr> and trigger an animation...see app.css for class definitions
         this.state={rowClass:"myRow"}
@@ -16,35 +19,18 @@ class TableRow extends React.Component{
 
     handleCompletionToggleClick(event){
         event.preventDefault()
-        //change the className using setState so render is called with new className and css transition is triggered
-        this.setState({rowClass:"myRow myRowAfterButtonClick"})
-        //the animations to shrink row takes 0.5s to complete so use setTimeout to delay next steps from being 
-        //executed until animation is complete
-        //once animation is complete change task status to complete ..this changes state in app conponent and page is
-        //rerendered ... remember to set classNames back at end otherwise this row won't appear as completed at bottom 
-        //of table as it will be shrunk and invisible 
-        //had some difficulty calling this inside setTimeout due to this having context of winow not this object...solved by
-        //using arrow functions which don't have their own this but inherit from the enclosing lexical context.
-        //added an extra 10ms delay between toggling status of completion and making row reappear in animation....without this
-        //safari does not render the css transition properly...I DON'T REALLY KNOW
-        setTimeout(()=>{this.props.toggleCompleteStatus(this.props.task.id); 
-                      setTimeout(()=>{this.setState({rowClass:"myRow"})}, 10);}, 500) 
+       //toggle completion status of the task ..this will moidify the key of this table row so its removed from 
+       //the virtual DOM and replaced with a new one with a completed task and a new key..this means that the
+       //transition animation gets triggered as it will only get triggered on appear or on the change of value of in prop...
+       //problem is we don't want to cange the show state as the task is still show==true...its just changed a property
+        this.props.toggleCompleteStatus(this.props.task.id)
     }
 
 
     handleDeleteClick(event){
         event.preventDefault()
-        //change the className using setState so render is called with new className and css transition is triggered
-        this.setState({rowClass:"myRow myRowAfterButtonClick"})
-        //the animations to shrink row takes 0.5s to complete so use setTimeout to delay next steps from being 
-        //executed until animation is complete
-        //once animation is complete change task status to complete ..this changes state in app conponent and page is
-        //rerendered ... remember to set classNames back at end otherwise this row won't appear as completed at bottom 
-        //of table as it will be shrunk and invisible 
-        //had some difficulty calling this inside setTimeout due to this having context of winow not this object...solved by
-        //using arrow functions which don't have their own this but inherit from the enclosing lexical context.
-        setTimeout(()=>{this.props.deleteTask(this.props.task.id); 
-            this.setState({rowClass:"myRow"})}, 500)
+        //delete the task ...no animation
+        this.props.deleteTask(this.props.task.id);
     }
 
     render(){
@@ -54,20 +40,25 @@ class TableRow extends React.Component{
         }
 
         return(
-            <tr className={this.state.rowClass}>
-                <td className="align-middle" style={textStyle}>{this.props.task.text}</td>
-                <td style={styles.mybuttoncolumn} className="text-right">
-                    {this.props.task.completed ? (
-                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Reinstate Task</button>
-                    ) : (
-                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Done</button>
-                    )
-                    }
-                </td>
-                <td style={styles.mybuttoncolumn} className="text-right">
-                    <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleDeleteClick}>Delete</button>
-                </td>
-            </tr> 
+                <Transition in={this.props.task.show} appear={true} timeout={750}>
+                {(state)=>(
+                <tr className={"myfade myfade-" +state}>
+                    <td className="align-middle" style={textStyle}>{this.props.task.text}</td>
+                    <td style={styles.mybuttoncolumn} className="text-right">
+                        {this.props.task.completed ? (
+                            <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Reinstate Task</button>
+                        ) : (
+                            <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Done</button>
+                        )
+                        }
+                    </td>
+                    <td style={styles.mybuttoncolumn} className="text-right">
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleDeleteClick}>Delete</button>
+                    </td>
+                </tr> 
+                )}
+                </Transition> 
+        
         )
     }
 
