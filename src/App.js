@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Counter from './components/counter';
 import Table from './components/table';
+import {tasks, TasksContext} from './components/tasks-context'
 
 class App extends Component {
   constructor(props){
@@ -14,18 +15,23 @@ class App extends Component {
     //change by react...we will not reuse id's when a task is deleted
     this.counter = 0;
 
-    //create an empty array to hold tasks as state
-    this.state = {tasks:[]}
-
-    //bind add task function to this object
     this.addTask = this.addTask.bind(this)
     this.toggleCompleteStatus = this.toggleCompleteStatus.bind(this)
     this.deleteTask = this.deleteTask.bind(this)
 
+    //state initially contains an empty array for the tasks
+    this.state = {tasks:[],
+                  toggleCompleteStatus:this.toggleCompleteStatus,
+                  deleteTask:this.deleteTask,
+                  addTask:this.addTask,
+                  }
+
   }
+
 
   //function for adding a new task and updating state
   addTask(taskText){
+    console.log("called")
     //create a new uncompleted task based on taskText
     const task={
       id:this.counter,
@@ -89,10 +95,12 @@ class App extends Component {
         <div style={styles.content} className="pt-5 flex-grow-1"> {/*need padding as set navbar as fixed-top, makes it sit over the top of other content*/}
           
           <div className="container-fluid">
-            <Header/>
-            <Form addTaskHandler={this.addTask}/>
-            <Counter count={this.state.tasks.filter(function(element){return(element.completed==false)}).length} />
-            <Table tasks={this.state.tasks} toggleCompleteStatus={this.toggleCompleteStatus} deleteTask={this.deleteTask}/>
+          <Header/>
+            <TasksContext.Provider value={this.state}>
+              <Form />
+              <Counter />
+              <Table toggleCompleteStatus={this.toggleCompleteStatus} deleteTask={this.deleteTask}/>
+            </TasksContext.Provider>.
           </div> {/*end of container-fluid...bootstrap container for laying out components within main content of page*/}
 
         </div> {/*end of content div that resizes to whole of screen minus footer*/}
