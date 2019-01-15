@@ -43,8 +43,7 @@ class TableRow extends React.Component{
         //of table as it will be shrunk and invisible 
         //had some difficulty calling this inside setTimeout due to this having context of winow not this object...solved by
         //using arrow functions which don't have their own this but inherit from the enclosing lexical context.
-        setTimeout(()=>{this.props.deleteTask(this.props.task.id); 
-            this.setState({rowClass:"myRow"})}, 500)
+        setTimeout(()=>{this.props.deleteTask(this.props.task.id)}, 500)
     }
 
     render(){
