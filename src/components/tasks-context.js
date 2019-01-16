@@ -1,17 +1,13 @@
 import React from 'react'
 
-//default value for TaskContext.Provider if a value isn't passed
-const tasks = [{id:0,
-                text:"feed cat",
-                completed: false}      
-              ]
-
+ //as a default this has context has an empty task list and empty functions...in reality these will be 
+ //passsed into TaskContext as an object passed as value prop        
 const TasksContext = React.createContext(
-    {tasks: tasks,
+    {tasks: [],
      toggleCompleteStatus: ()=>{},
      deleteTask:()=>{},
      addTask:()=>{}
     }
 )
 
-export {tasks, TasksContext};
+ export default TasksContext;

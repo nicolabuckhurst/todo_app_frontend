@@ -1,5 +1,5 @@
 import React from 'react'
-import {TasksContext} from './tasks-context'
+import TasksContext from './tasks-context'
 
 class Form extends React.Component{
 
@@ -16,17 +16,15 @@ class Form extends React.Component{
         this.setState({value:event.target.value})
     }
 
-    handleSubmit(event, sumbitHandler){
+    handleSubmit(event){
         event.preventDefault()
-        sumbitHandler(this.state.value)
+        this.context.addTask(this.state.value)
         this.setState({value:""})
     }
 
     render(){
         return(
-            <TasksContext.Consumer>
-            {({tasks,toggleCompleteStatus,deleteTask,addTask}) => (
-            <form onSubmit={(event)=>{this.handleSubmit(event,addTask)}}>
+            <form onSubmit={this.handleSubmit}>
                 <div className="form-row justify-content-center align-items-center mb-2 pb-4">
                     <div className="col-12 col-lg-8">
                         <div className="input-group mb-3">
@@ -38,12 +36,10 @@ class Form extends React.Component{
                     </div>
                 </div>
             </form>
-            )}
-            </TasksContext.Consumer>
         )
     }
 }
 
-
+Form.contextType = TasksContext
 
 export default Form

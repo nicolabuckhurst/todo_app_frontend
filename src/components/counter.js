@@ -1,5 +1,5 @@
 import React from 'react'
-import {TasksContext} from './tasks-context'
+import TasksContext from './tasks-context'
 
 //pass a prop called count to this component containing the total number of tasks remaining
 class Counter extends React.Component{

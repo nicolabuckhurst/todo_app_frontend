@@ -1,5 +1,5 @@
 import React from 'react'
-import {TasksContext} from './tasks-context'
+import TasksContext from './tasks-context'
 
 //pass this component a prop called key as a list of these will be created and react needs a key prop to 
 //tell when components change
@@ -15,7 +15,7 @@ class TableRow extends React.Component{
         this.handleDeleteClick = this.handleDeleteClick.bind(this);
     }
 
-    handleCompletionToggleClick(event, completionToggler){
+    handleCompletionToggleClick(event){
         event.preventDefault()
         //change the className using setState so render is called with new className and css transition is triggered
         this.setState({rowClass:"myRow myRowAfterButtonClick"})
@@ -28,12 +28,12 @@ class TableRow extends React.Component{
         //using arrow functions which don't have their own this but inherit from the enclosing lexical context.
         //added an extra 10ms delay between toggling status of completion and making row reappear in animation....without this
         //safari does not render the css transition properly...I DON'T REALLY KNOW
-        setTimeout(()=>{completionToggler(this.props.task.id); 
+        setTimeout(()=>{this.context.toggleCompleteStatus(this.props.task.id); 
                       setTimeout(()=>{this.setState({rowClass:"myRow"})}, 10);}, 500) 
     }
 
 
-    handleDeleteClick(event, deleteHandler){
+    handleDeleteClick(event){
         event.preventDefault()
         //change the className using setState so render is called with new className and css transition is triggered
         this.setState({rowClass:"myRow myRowAfterButtonClick"})
@@ -44,7 +44,7 @@ class TableRow extends React.Component{
         //of table as it will be shrunk and invisible 
         //had some difficulty calling this inside setTimeout due to this having context of winow not this object...solved by
         //using arrow functions which don't have their own this but inherit from the enclosing lexical context.
-        setTimeout(()=>{deleteHandler(this.props.task.id)}, 500)
+        setTimeout(()=>{this.context.deleteTask(this.props.task.id)}, 500)
     }
 
     render(){
@@ -54,28 +54,26 @@ class TableRow extends React.Component{
         }
 
         return(
-            <TasksContext.Consumer>
-            {({tasks,toggleCompleteStatus,deleteTask,addTask}) => (
             <tr className={this.state.rowClass}>
                 <td className="align-middle" style={textStyle}>{this.props.task.text}</td>
                 <td style={styles.mybuttoncolumn} className="text-right">
                     {this.props.task.completed ? (
-                        <button type="button" className="btn btn-secondary btn-sm" onClick={(event)=>{this.handleCompletionToggleClick(event,toggleCompleteStatus)}}>Reinstate Task</button>
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Reinstate Task</button>
                     ) : (
-                        <button type="button" className="btn btn-secondary btn-sm" onClick={(event)=>{this.handleCompletionToggleClick(event, toggleCompleteStatus)}}>Done</button>
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Done</button>
                     )
                     }
                 </td>
                 <td style={styles.mybuttoncolumn} className="text-right">
-                    <button type="button" className="btn btn-secondary btn-sm" onClick={(event)=>{this.handleDeleteClick(event,deleteTask)}}>Delete</button>
+                    <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleDeleteClick}>Delete</button>
                 </td>
             </tr> 
-            )}
-            </TasksContext.Consumer>
         )
     }
 
 }
+
+TableRow.contextType = TasksContext
 
 const styles={
     mybuttoncolumn:{

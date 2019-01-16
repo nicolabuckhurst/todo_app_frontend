@@ -5,7 +5,7 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Counter from './components/counter';
 import Table from './components/table';
-import {tasks, TasksContext} from './components/tasks-context'
+import TasksContext from './components/tasks-context'
 
 class App extends Component {
   constructor(props){
@@ -28,10 +28,8 @@ class App extends Component {
 
   }
 
-
   //function for adding a new task and updating state
   addTask(taskText){
-    console.log("called")
     //create a new uncompleted task based on taskText
     const task={
       id:this.counter,

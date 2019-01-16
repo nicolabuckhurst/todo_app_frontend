@@ -1,6 +1,6 @@
 import React from 'react'
 import TableRow from './tablerow'
-import { TasksContext } from './tasks-context';
+import TasksContext  from './tasks-context';
 
 //pass a prop which is an array of task object to table and it will create a table with the appropriate row components
 //a task object will look like this {id:"number", text:"string", completed:"boolean"}

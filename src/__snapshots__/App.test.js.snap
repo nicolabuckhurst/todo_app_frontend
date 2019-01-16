@@ -136,6 +136,7 @@ exports[`the page renders correctly renders correctly onloading 1`] = `
           </div>
         </div>
       </div>
+      .
     </div>
      
   </div>
@@ -349,6 +350,7 @@ exports[`the page renders correctly renders correctly when a new task is added 1
           </div>
         </div>
       </div>
+      .
     </div>
      
   </div>
@@ -646,6 +648,7 @@ exports[`the page renders correctly renders correctly when multiple tasks have b
           </div>
         </div>
       </div>
+      .
     </div>
      
   </div>
@@ -948,6 +951,7 @@ exports[`the page renders correctly renders correctly when task is completed 1`]
           </div>
         </div>
       </div>
+      .
     </div>
      
   </div>
@@ -1203,6 +1207,7 @@ exports[`the page renders correctly renders correctly when task is deleted 1`] =
           </div>
         </div>
       </div>
+      .
     </div>
      
   </div>
@@ -1500,6 +1505,7 @@ exports[`the page renders correctly renders correctly when task is reinstated 1`
           </div>
         </div>
       </div>
+      .
     </div>
      
   </div>
