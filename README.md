@@ -14,3 +14,5 @@ To launch app:
 
 Tests:
 * run **npm test**
+
+![awatch the video](https://github.com/nicolabuckhurst/todo_app_frontend/ToDoAppVideo.mov "")
