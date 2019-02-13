@@ -27,8 +27,11 @@ class TableRow extends React.Component{
         //using arrow functions which don't have their own this but inherit from the enclosing lexical context.
         //added an extra 10ms delay between toggling status of completion and making row reappear in animation....without this
         //safari does not render the css transition properly...I DON'T REALLY KNOW
-        setTimeout(()=>{this.props.toggleCompleteStatus(this.props.task.id); 
-                      setTimeout(()=>{this.setState({rowClass:"myRow"})}, 10);}, 500) 
+        setTimeout(()=>{this.props.toggleCompleteStatusAsync(this.props.task.taskId)
+                        .then((response)=>{
+                            setTimeout(()=>{this.setState({rowClass:"myRow"})}, 10);
+                        })
+                        }, 500) 
     }
 
 
@@ -43,20 +46,20 @@ class TableRow extends React.Component{
         //of table as it will be shrunk and invisible 
         //had some difficulty calling this inside setTimeout due to this having context of winow not this object...solved by
         //using arrow functions which don't have their own this but inherit from the enclosing lexical context.
-        setTimeout(()=>{this.props.deleteTask(this.props.task.id)}, 500)
+        setTimeout(()=>{this.props.deleteTaskAsync(this.props.task.taskId)}, 500)
     }
 
     render(){
         let textStyle = {}
-        if(this.props.task.completed == true){
+        if(this.props.task.taskCompleted == true){
             textStyle = styles.completedTextStyle
         }
 
         return(
             <tr className={this.state.rowClass}>
-                <td className="align-middle" style={textStyle}>{this.props.task.text}</td>
+                <td className="align-middle" style={textStyle}>{this.props.task.taskDescription}</td>
                 <td style={styles.mybuttoncolumn} className="text-right">
-                    {this.props.task.completed ? (
+                    {this.props.task.taskCompleted ? (
                         <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Reinstate Task</button>
                     ) : (
                         <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCompletionToggleClick}>Done</button>

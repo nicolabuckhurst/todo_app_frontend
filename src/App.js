@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Counter from './components/counter';
 import Table from './components/table';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props){
@@ -18,52 +19,111 @@ class App extends Component {
     this.state = {tasks:[]}
 
     //bind add task function to this object
-    this.addTask = this.addTask.bind(this)
-    this.toggleCompleteStatus = this.toggleCompleteStatus.bind(this)
-    this.deleteTask = this.deleteTask.bind(this)
+    this.addTaskAsync = this.addTaskAsync.bind(this)
+    this.toggleCompleteStatusAsync = this.toggleCompleteStatusAsync.bind(this)
+    this.deleteTaskAsync = this.deleteTaskAsync.bind(this)
+  }
 
+  getTaskById(id){
+    for(let i=0; i<this.state.tasks.length; i++){
+      if(this.state.tasks[i].taskId == id){
+        return this.state.tasks[i]
+      }
+    }
+  }
+
+  componentDidMount(){
+    return axios.request(
+      {url: 'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks',
+      method: 'GET'
+      }
+    )
+    .then((response) => this.setState({tasks:response.data}))
   }
 
   //function for adding a new task and updating state
-  addTask(taskText){
+  addTaskAsync(taskText){
     //create a new uncompleted task based on taskText
     const task={
-      id:this.counter,
-      text:taskText,
-      completed: false
+      'taskDescription': taskText,
+      'taskCompleted': 0,
+      'userId': 1
     }
-    //get current list of tasks stored in state and push new task onto end
-    let taskList = this.state.tasks;
-    taskList.push(task);
-    //use setState to update the taskList stored in state
-    this.setState({tasks:taskList})
-    this.counter ++;
+    return axios.request(
+      {
+        url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks',
+        method: 'POST',
+        headers:{'content-type':'application/json'},
+        data: task
+      }
+    )
+    .then((response)=>{
+      return axios.request(
+        {
+          url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks',
+          method:'GET'
+        }
+      )
+    })
+    .then((response)=>{
+      console.log(response)
+      this.setState({tasks:response.data})
+    })
   }
 
   //function for changing task status to completed
-  toggleCompleteStatus(id){
-    //find task by id and toggle the completed property
-    let taskList = this.state.tasks;
-    for(let i=0; i<taskList.length; i++){
-      if(taskList[i].id == id){
-        taskList[i].completed = !taskList[i].completed //toggle the boolean value
+  toggleCompleteStatusAsync(id){
+   //toggle the completed property on selected task
+   let newCompletionStatus = this.getTaskById(id).taskCompleted == 0 ? 1 : 0
+
+   return axios.request(
+     {
+       url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks/'+id,
+       method:'PUT',
+       headers:{'content-Type':'application/json'},
+       data:{"taskCompleted": newCompletionStatus}
+     }
+   )
+   .then((response)=>{
+      return axios.request(
+        {
+          url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks/'+id,
+          method:'GET',
+        }
+      )
+   })
+   .then((response)=>{
+      let newTaskList =[]
+      for(let i=0; i<this.state.tasks.length; i++){
+        if(this.state.tasks[i].taskId == id){
+          newTaskList.push(response.data)
+        } else {
+          newTaskList.push(this.state.tasks[i])
+        }
       }
-    }
-    //use setState to update taskList stored in State
-    this.setState({tasks:taskList})
+      //use setState to update taskList stored in State
+      this.setState({tasks:newTaskList})
+   })
   }
 
   //function to delete task
-  deleteTask(id){
-    //find task by id and delete from array
-    let taskList = this.state.tasks;
-    for(let i=0; i<taskList.length; i++){
-      if(taskList[i].id == id){
-        taskList.splice(i,1);
+  deleteTaskAsync(id){
+    return axios.request(
+      {
+        url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks/' +id,
+        method:'DELETE'
       }
-    }
-    //use setState to update taskList stored in State
-    this.setState({tasks:taskList})
+    )
+    .then((response)=>{
+      let newTaskList =[]
+      for(let i=0; i<this.state.tasks.length; i++){
+        if(this.state.tasks[i].taskId != id){
+          newTaskList.push(this.state.tasks[i])
+        }
+      }
+      //use setState to update taskList stored in State
+      this.setState({tasks:newTaskList})
+    })
   }
   
   render() {
@@ -90,9 +150,9 @@ class App extends Component {
           
           <div className="container-fluid">
             <Header/>
-            <Form addTaskHandler={this.addTask}/>
-            <Counter count={this.state.tasks.filter(function(element){return(element.completed==false)}).length} />
-            <Table tasks={this.state.tasks} toggleCompleteStatus={this.toggleCompleteStatus} deleteTask={this.deleteTask}/>
+            <Form addTaskAsync={this.addTaskAsync}/>
+            <Counter count={this.state.tasks.filter(function(element){return(element.taskCompleted==false)}).length} />
+            <Table tasks={this.state.tasks} toggleCompleteStatusAsync={this.toggleCompleteStatusAsync} deleteTaskAsync={this.deleteTaskAsync}/>
           </div> {/*end of container-fluid...bootstrap container for laying out components within main content of page*/}
 
         </div> {/*end of content div that resizes to whole of screen minus footer*/}

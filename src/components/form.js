@@ -17,8 +17,10 @@ class Form extends React.Component{
 
     handleSubmit(event){
         event.preventDefault()
-        this.props.addTaskHandler(this.state.value)
-        this.setState({value:""})
+        this.props.addTaskAsync(this.state.value)
+        .then(()=>{
+            this.setState({value:""})
+        })
     }
 
     render(){
