@@ -7,7 +7,7 @@ class Form extends React.Component{
         this.state={value:""}
 
         this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmitAsync = this.handleSubmitAsync.bind(this)
 
     }
 
@@ -15,17 +15,15 @@ class Form extends React.Component{
         this.setState({value:event.target.value})
     }
 
-    handleSubmit(event){
+    async handleSubmitAsync(event){
         event.preventDefault()
-        this.props.addTaskAsync(this.state.value)
-        .then(()=>{
-            this.setState({value:""})
-        })
+        await this.props.addTaskAsync(this.state.value)
+        this.setState({value:""})
     }
 
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmitAsync}>
                 <div className="form-row justify-content-center align-items-center mb-2 pb-4">
                     <div className="col-12 col-lg-8">
                         <div className="input-group mb-3">

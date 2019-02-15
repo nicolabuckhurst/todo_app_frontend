@@ -6,6 +6,7 @@ import Form from './components/form';
 import Counter from './components/counter';
 import Table from './components/table';
 import axios from 'axios';
+import TaskService from './service/tasks'
 
 class App extends Component {
   constructor(props){
@@ -32,98 +33,58 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
-    return axios.request(
-      {url: 'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks',
-      method: 'GET'
-      }
-    )
-    .then((response) => this.setState({tasks:response.data}))
+  async componentDidMount() {
+    const tasks = await TaskService.getTasksAsync();
+    this.setState({tasks: tasks});
   }
 
   //function for adding a new task and updating state
-  addTaskAsync(taskText){
+  async addTaskAsync(taskText){
     //create a new uncompleted task based on taskText
     const task={
       'taskDescription': taskText,
       'taskCompleted': 0,
       'userId': 1
     }
-    return axios.request(
-      {
-        url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks',
-        method: 'POST',
-        headers:{'content-type':'application/json'},
-        data: task
-      }
-    )
-    .then((response)=>{
-      return axios.request(
-        {
-          url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks',
-          method:'GET'
-        }
-      )
-    })
-    .then((response)=>{
-      console.log(response)
-      this.setState({tasks:response.data})
-    })
+
+    await TaskService.addTaskAsync(task)
+    let tasks = await TaskService.getTasksAsync()
+    this.setState({tasks:tasks})
   }
 
   //function for changing task status to completed
-  toggleCompleteStatusAsync(id){
-   //toggle the completed property on selected task
-   let newCompletionStatus = this.getTaskById(id).taskCompleted == 0 ? 1 : 0
+  async toggleCompleteStatusAsync(id){
+    console.log("toggle called")
+    let newCompletionStatus = this.getTaskById(id).taskCompleted == 0 ? 1 : 0
 
-   return axios.request(
-     {
-       url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks/'+id,
-       method:'PUT',
-       headers:{'content-Type':'application/json'},
-       data:{"taskCompleted": newCompletionStatus}
-     }
-   )
-   .then((response)=>{
-      return axios.request(
-        {
-          url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks/'+id,
-          method:'GET',
-        }
-      )
-   })
-   .then((response)=>{
-      let newTaskList =[]
-      for(let i=0; i<this.state.tasks.length; i++){
-        if(this.state.tasks[i].taskId == id){
-          newTaskList.push(response.data)
-        } else {
-          newTaskList.push(this.state.tasks[i])
-        }
+    await TaskService.changeCompletionStatusAsync(id, newCompletionStatus)
+    let task = await TaskService.getTaskAsync(id)
+   
+    let newTaskList =[]
+    for(let i=0; i<this.state.tasks.length; i++){
+      if(this.state.tasks[i].taskId == id){
+        newTaskList.push(task)
+      } else {
+        newTaskList.push(this.state.tasks[i])
       }
-      //use setState to update taskList stored in State
-      this.setState({tasks:newTaskList})
-   })
+    }
+    //use setState to update taskList stored in State
+    this.setState({tasks:newTaskList})
   }
 
   //function to delete task
-  deleteTaskAsync(id){
-    return axios.request(
-      {
-        url:'https://o5xakw8bd7.execute-api.eu-west-2.amazonaws.com/dev/tasks/' +id,
-        method:'DELETE'
+  async deleteTaskAsync(id){
+
+    await TaskService.deleteTaskAsync(id)
+   
+    let newTaskList =[]
+    for(let i=0; i<this.state.tasks.length; i++){
+      if(this.state.tasks[i].taskId != id){
+        newTaskList.push(this.state.tasks[i])
       }
-    )
-    .then((response)=>{
-      let newTaskList =[]
-      for(let i=0; i<this.state.tasks.length; i++){
-        if(this.state.tasks[i].taskId != id){
-          newTaskList.push(this.state.tasks[i])
-        }
-      }
+    }
       //use setState to update taskList stored in State
-      this.setState({tasks:newTaskList})
-    })
+    this.setState({tasks:newTaskList})
   }
   
   render() {
