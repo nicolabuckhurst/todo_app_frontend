@@ -34,11 +34,16 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const tasks = await TaskService.getTasksAsync();
+    let tasks = []
+    try{
+      tasks = await TaskService.getTasksAsync();
+    }catch(e){
+      console.log(e)
+    }
     this.setState({tasks: tasks});
   }
 
-  //function for adding a new task and updating state
+  //function for adding a new task and updating state..it returns a promise that resolves to undefined once new task is added and then tasks are rechecked (as nothing is returned from function)
   async addTaskAsync(taskText){
     //create a new uncompleted task based on taskText
     const task={
@@ -46,19 +51,33 @@ class App extends Component {
       'taskCompleted': 0,
       'userId': 1
     }
-
-    await TaskService.addTaskAsync(task)
-    let tasks = await TaskService.getTasksAsync()
+    
+    let tasks =[]
+    try{
+      //wait for the promise returned from addTaskAsync to resolve
+      await TaskService.addTaskAsync(task)
+      //THEN wait for getTasksAsync to reolve
+      tasks = await TaskService.getTasksAsync()
+    } catch(e){
+      console.log(e)
+    }
     this.setState({tasks:tasks})
   }
 
-  //function for changing task status to completed
+  //function for changing task status to completed ..it returns a promise that resolves to undefined once new task is added and task is rechecked (but we don't return anything from this function)
   async toggleCompleteStatusAsync(id){
     console.log("toggle called")
     let newCompletionStatus = this.getTaskById(id).taskCompleted == 0 ? 1 : 0
 
-    await TaskService.changeCompletionStatusAsync(id, newCompletionStatus)
-    let task = await TaskService.getTaskAsync(id)
+    let task = {}
+    try{
+      //wait for completion status to be changed
+      await TaskService.changeCompletionStatusAsync(id, newCompletionStatus)
+      //THEN get the task back from database
+      task = await TaskService.getTaskAsync(id)
+    } catch(e){
+      console.log(e)
+    }
    
     let newTaskList =[]
     for(let i=0; i<this.state.tasks.length; i++){
@@ -68,15 +87,21 @@ class App extends Component {
         newTaskList.push(this.state.tasks[i])
       }
     }
+
     //use setState to update taskList stored in State
     this.setState({tasks:newTaskList})
   }
 
-  //function to delete task
+  //function to delete task ...returns a promise that resolves to undefined when task is deleted as this fiunction doesnt return anything
   async deleteTaskAsync(id){
 
-    await TaskService.deleteTaskAsync(id)
-   
+    try{
+      //wait for task to be deleted
+      await TaskService.deleteTaskAsync(id)
+    } catch (e){
+      console.log(e)
+    }
+
     let newTaskList =[]
     for(let i=0; i<this.state.tasks.length; i++){
       if(this.state.tasks[i].taskId != id){

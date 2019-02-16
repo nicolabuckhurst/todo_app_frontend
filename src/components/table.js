@@ -9,7 +9,7 @@ class Table extends React.Component{
         let tableRowsToRender =[];
         for(let i=0; i<this.props.tasks.length;i++){
             //if task isn't complete add to beginning of array using unshift ...this means non completed tasks will appear most rrcently added first
-            if(this.props.tasks[i].completed == false){
+            if(this.props.tasks[i].taskCompleted == 0){
                 tableRowsToRender.unshift(
                     <TableRow key={this.props.tasks[i].taskId} task={this.props.tasks[i]} toggleCompleteStatusAsync={this.props.toggleCompleteStatusAsync} deleteTaskAsync={this.props.deleteTaskAsync}  /> //react needs this key to identify when an aray element changes
                 )
